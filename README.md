@@ -6,7 +6,7 @@
 
 ---
 
-## 🏢 Business Scenario: StreamFlix Rentals
+## 🏢Business Scenario:  Rentals
 
 A DVD rental service with both brick-and-mortar stores and an online mail-based DVD rental model. To stay competitive and make data-driven decisions, the company builds a Snowflake-powered data warehouse to answer questions such as:
 
@@ -20,7 +20,7 @@ The warehouse model includes curated tables in the `ANALYTICS` schema and BI-fri
 
 ---
 
-## ✅ DIM_DATE
+##  DIM_DATE
 
 ### Purpose
 Time dimension used for filtering and grouping facts by day, week, month, and year.
@@ -40,7 +40,7 @@ Time dimension used for filtering and grouping facts by day, week, month, and ye
 
 ---
 
-## ✅ DIM_FILM
+##  DIM_FILM
 
 ### Purpose
 Provides film-level attributes for analysis.
@@ -61,7 +61,7 @@ Provides film-level attributes for analysis.
 
 ---
 
-## ✅ DIM_STORE_STAFF
+## DIM_STORE_STAFF
 
 ### Purpose
 Combines staff and store metadata into a single dimension.
@@ -81,7 +81,7 @@ Combines staff and store metadata into a single dimension.
 
 ---
 
-## ✅ DIM_LOCATION
+## DIM_LOCATION
 
 ### Purpose
 Reusable geographic dimension for addresses.
@@ -103,7 +103,7 @@ Reusable geographic dimension for addresses.
 
 ---
 
-## ✅ FACT_RENTAL_SNAPSHOT
+##  FACT_RENTAL_SNAPSHOT
 
 ### Purpose
 Captures one record per rental with behavioral and financial metrics.
@@ -124,7 +124,7 @@ Captures one record per rental with behavioral and financial metrics.
 
 ---
 
-## ✅ FACT_PAYMENT
+## FACT_PAYMENT
 
 ### Purpose
 Captures one row per customer payment.
@@ -144,7 +144,7 @@ Captures one row per customer payment.
 
 ---
 
-## ✅ BI_RENTALS_ALL
+## BI_RENTALS_ALL
 
 ### Purpose
 Fully denormalized table combining all facts and dimensions for easy dashboard consumption.
@@ -178,7 +178,7 @@ Fully denormalized table combining all facts and dimensions for easy dashboard c
 
 ---
 
-## ✅ Data Quality Tests (via Snowpark Python)
+## Data Quality Tests (via Snowpark Python)
 
 We’ve implemented data quality tests using Python inside Snowflake Worksheets. These validate business rules and help detect anomalies.
 

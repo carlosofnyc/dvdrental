@@ -19,6 +19,15 @@ A DVD rental service with both brick-and-mortar stores and an online mail-based 
 The warehouse model includes curated tables in the `ANALYTICS` schema and BI-friendly views in a clean `PRODUCTION` schema. Python-based data quality checks ensure clean and trustworthy data.
 
 ---
+## Proposed Architecture Diagram
+
+![images\group-3-architecture.png](images\group-3-architecture.png)
+
+To move data from the source database into a landing Snowflake warehouse, Airbyte was leveraged to allow for incremental loading based on a datetime cursor. Following extraction and loading, the Snowpark python library was used to carry out data quality tests on the recods in the warehouse before they were moved into a production database.
+
+Once in production, the data was connected to the business intelligence tool Power BI to accomodate the production of dashboard visualisation. 
+
+---
 
 ##  DIM_DATE
 
@@ -191,3 +200,16 @@ We’ve implemented data quality tests using Python inside Snowflake Worksheets.
 > ❗ A `FAIL` in the second test (`AMOUNT <= 0`) **does not mean an error** — it may highlight **promotional or free rentals**, which are **expected** but should be **flagged for business awareness**. Any incremental load would not increase the 24 records of the failed test as new updates are controled to have an amount higher than 0 
 
 ---
+
+## 📊 Dashboard Generation (Power BI)
+
+Following warehousing, the Snowflake data was connected to the business analytics service Power BI to facilitate dashboard production and downstream analysis.
+Dashboards were generated to pertinent business questions such as 'which film title is most profitable?' and 'which store generated the most revenue?'.
+
+Included below are screenshots to evidence the connection to the Snowflake warehouse and generation of visualisations.
+
+![/dec-powerbi-config-viz.png](/dec-powerbi-config-viz.png)
+
+Link to published dashboard [HERE](https://app.powerbi.com/groups/me/reports/8b388baa-e6c1-4bfa-9fa2-72573e03af58?ctid=0bb55334-a737-46e1-b018-2a114b78f00f&pbi_source=linkShare&bookmarkGuid=d25af228-3b34-4874-b54d-441533af12e0).
+
+In the event that the live dashboard is unavailable, the PBIX file has been included in the repo.

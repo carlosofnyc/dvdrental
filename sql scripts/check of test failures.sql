@@ -1,0 +1,16 @@
+-- Set context
+USE DATABASE AIRBYTE_DATABASE;
+USE SCHEMA ANALYTICS;
+
+-- Show all payments with invalid (zero or negative) amount
+SELECT 
+    PAYMENT_ID,
+    CUSTOMER_ID,
+    STAFF_ID,
+    FILM_ID,
+    DATE_ID,
+    AMOUNT,
+    PAYMENT_DATE
+FROM AIRBYTE_DATABASE.ANALYTICS.FACT_PAYMENT
+WHERE AMOUNT <= 0
+ORDER BY AMOUNT;

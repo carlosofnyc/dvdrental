@@ -4,6 +4,11 @@
 **Schemas:** `ANALYTICS`, `PRODUCTION`  
 **Architecture Type:** Star schema with conformed dimensions, snapshot facts, denormalized BI table, and data quality automation using Snowpark.
 
+**Contributors:**
+- [@carlosofnyc](https://github.com/carlosofnyc) – Data Extraction, Loading (Airbyte, Snowflake)
+- [@graham-anderson-RTX](https://github.com/graham-anderson-RTX) – ERD, Visualization (Power BI, Lucidchart)
+- [@antoniamayaainoacastro](https://github.com/antoniamayaainoacastro) – Data Modeling, Testing (Snowflake, Python)
+  
 ---
 
 ## 🏢Business Scenario:  Rentals

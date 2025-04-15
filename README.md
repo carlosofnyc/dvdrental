@@ -1,8 +1,7 @@
 # 📄 DVD Rental Data Warehouse Documentation
-
 **Database:** `AIRBYTE_DATABASE`  
 **Schemas:** `ANALYTICS`, `PRODUCTION`  
-**Architecture Type:** Star schema with conformed dimensions, snapshot facts, denormalized BI table, and data quality automation using Snowpark.
+**Architecture:** Star schema with conformed dimensions, snapshot fact tables, a denormalized BI table, and automated data quality checks using Snowpark Python.
 
 **Contributors:**
 - [@carlosofnyc](https://github.com/carlosofnyc) – Data Extraction, Loading (Airbyte, Snowflake)
@@ -11,24 +10,25 @@
   
 ---
 
-## 🏢Business Scenario:  Rentals
+## 🏢 Business Scenario: DVD Rentals
 
-A DVD rental service with both brick-and-mortar stores and an online mail-based DVD rental model. To stay competitive and make data-driven decisions, the company builds a Snowflake-powered data warehouse to answer questions such as:
+A DVD rental company operates both physical stores and an online mail-based rental service. To remain competitive and data-driven, the company implemented a Snowflake-based data warehouse to answer key business questions, such as:
 
-- What movies are most popular and profitable?
-- Which staff and stores are top-performing?
-- How many customers rent again?
-- Are we seeing anomalies, such as free rentals or payment mismatches?
-- What is our revenue trend by category, day, and geography?
+- Which movies are most popular and profitable?
+- Who are the top-performing staff and stores?
+- What is the customer repeat rental rate?
+- Are there anomalies, such as free rentals or payment discrepancies?
+- How does revenue trend by category, date, and location?
 
-The warehouse model includes curated tables in the `ANALYTICS` schema and BI-friendly views in a clean `PRODUCTION` schema. Python-based data quality checks ensure clean and trustworthy data.
+The warehouse design features curated tables in the `ANALYTICS` schema and BI-ready views in the `PRODUCTION` schema. Python-powered data quality checks help ensure data integrity and reliability.
 
 ---
-## Proposed Architecture Diagram
 
-![images\group-3-architecture.png](images\group-3-architecture.png)
+## Architecture Overview
 
-To move data from the source database into a landing Snowflake warehouse, Airbyte was leveraged to allow for incremental loading based on a datetime cursor. Following extraction and loading, the Snowpark python library was used to carry out data quality tests on the recods in the warehouse before they were moved into a production database.
+![images/group-3-architecture.png](images/group-3-architecture.png)
+
+Data is ingested from the source database into a Snowflake landing area using Airbyte, enabling incremental loads via a datetime cursor. After extraction and loading, Snowpark Python scripts perform data quality validation before records are promoted to the production schema.
 
 Once in production, the data was connected to the business intelligence tool Power BI to accomodate the production of dashboard visualisation. 
 
